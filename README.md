@@ -11,7 +11,7 @@ The next sample is the rotation of the face (rx, ry, rz). The fourth channel her
 
 FaceCHOP has a toggle for using face landmark detection, so if you only care about getting the rectangular box of a face, leave it unchecked. Note that if you use face landmark detection, which is a step in finding the pose (rotation & translation) of a face, then you need to follow the licensing of iBUG. iBUG does not allow commercial use, so contact them for more information.
 
-There's a useful parameter "Facerectframeskip" whose label is "Face Rectangle Frame Skip". Processing the rectangles of faces is far more time-consuming that placing the landmarks on the faces. If you want to get some speed savings and can sacrifice a little accuracy of the landmarks, it can be a good idea to skip 1, maybe 2 frames. If the value is 0, then you'll calculate new face rectangles for every frame.
+There's a useful parameter "Facerectframeskip" whose label is "Face Rectangle Frame Skip." Processing the rectangles of faces is far more time-consuming that placing the landmarks on the faces. If you want to get some speed savings and can sacrifice a little accuracy of the landmarks, it can be a good idea to skip 1, maybe 2 frames. If the value is 0, then you'll calculate new face rectangles for every frame.
 
 # Installation
 
@@ -49,11 +49,11 @@ Note how both the opencv and dlib lib files have been added to "Additional Depen
  * [https://github.com/yinguobing/head-pose-estimation](https://github.com/yinguobing/head-pose-estimation)
 
 ## Thanks
-[http://dlib.net/webcam\_face\_pose\_ex.cpp.html](http://dlib.net/webcam\_face\_pose\_ex.cpp.html)
-[https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/](https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/)
-[http://aifi.isr.uc.pt/HeadPoseEstimation.html](http://aifi.isr.uc.pt/HeadPoseEstimation.html)
-[https://github.com/lincolnhard/head-pose-estimation](https://github.com/lincolnhard/head-pose-estimation)
-[https://github.com/mourendxu/TD-OpenCV3TOP](https://github.com/mourendxu/TD-OpenCV3TOP)
+* [http://dlib.net/webcam\_face\_pose\_ex.cpp.html](http://dlib.net/webcam\_face\_pose\_ex.cpp.html)
+* [https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/](https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/)
+* [http://aifi.isr.uc.pt/HeadPoseEstimation.html](http://aifi.isr.uc.pt/HeadPoseEstimation.html)
+* [https://github.com/lincolnhard/head-pose-estimation](https://github.com/lincolnhard/head-pose-estimation)
+* [https://github.com/mourendxu/TD-OpenCV3TOP](https://github.com/mourendxu/TD-OpenCV3TOP)
 
 # Dependent licenses
 [iBUG 300-W dataset](https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/) does not offer commercial usage. This dataset was used to make `shape_predictor_68_face_landmarks.dat`, which is what makes it possible to identify the 68 landmarks on a face. The bounding-box part of this project is not restricted by iBUG's license, but the landmark detection is.
