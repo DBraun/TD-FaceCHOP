@@ -3,6 +3,8 @@
 # TD-FaceCHOP
 ##### Face landmark detection with openCV and dlib (in TouchDesigner).
 
+![](docs/images/header.png)
+
 FaceCHOP takes an image and an expected camera horizontal field-of-view. The output is 4 channels and many samples. Each detected face corresponds to 71 samples. The first face involves samples 0-70; the second is 71-141; then 142-212 and so on. Of the 71 samples, the first 68 samples are the 2D (tx/ty) locations of the face landmarks. These correspond to the indices of the [iBUG 300-W dataset](https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/).
 
 After these 68 samples, the next sample is a rectangular box indicating where the face is. Basically, it's (center x, center y, size x, size y). Check the example TouchDesigner project for more context.
