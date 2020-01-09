@@ -45,9 +45,11 @@ Note how both the opencv and dlib lib files have been added to "Additional Depen
 ![](docs/images/properties_3.png)
 
 ## To do
-* Avoid using openCV entirely.
+* Mac OS support
+* Avoid using openCV Mat container
 * Try other methods
  * [https://github.com/1adrianb/face-alignment](https://github.com/1adrianb/face-alignment)
+ * [https://github.com/cleardusk/3DDFA](https://github.com/cleardusk/3DDFA) for a better 3D mesh
  * [https://github.com/yinguobing/head-pose-estimation](https://github.com/yinguobing/head-pose-estimation)
 
 ## Thanks
