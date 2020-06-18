@@ -31,7 +31,7 @@ Clone [dlib](https://github.com/davisking/dlib) to `C:\tools\dlib`. These are my
     cmake -g "Visual Studio 16 2019 Win64" -T host=x64 -DCMAKE_INSTALL_PREFIX=install .. -DUSE_AVX_INSTRUCTIONS=1;
     cmake --build . --config Release --target INSTALL
 
-You should end up with `C:\tools\dlib\build\install\lib\dlib19.17.99_release_64bit_msvc1921.lib`
+You should end up with `C:\tools\dlib\build\install\lib\dlib19.17.99_release_64bit_msvc1922.lib`
 
 Now download dlib's [`shape_predictor_68_face_landmarks.dat`](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2) and place it in the root of TD-FaceCHOP. It's also available [here](https://github.com/davisking/dlib-models). By using this file you must obey the licensing of the iBUG dataseet.
 
