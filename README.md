@@ -21,7 +21,7 @@ If you can't build the project yourself, visit the "Releases" page on Github. I'
 
 ## openCV
 Download [openCV](https://opencv.org/releases/). I use 4.1.1 but you can probably use other versions.
-On Windows, I've placed the opencv folder at C:/tools/opencv so that I have `C:\tools\opencv\build\x64\vc15\lib\opencv_world411.lib`. Next place `opencv_world411.dll` in `TD-FaceCHOP\Plugins`. Wherever you use `TD-FaceCHOP.dll`, `opencv_world411.dll` must be its direct neighbor.
+On Windows, I've placed the opencv folder at C:/tools/opencv so that I have `C:\tools\opencv\build\x64\vc15\lib\opencv_world411.lib`. Next go to a different folder, `C:\tools\opencv\build\x64\vc15\bin`, and copy `opencv_world411.dll` into `TD-FaceCHOP\Plugins`. Wherever you use `TD-FaceCHOP.dll`, `opencv_world411.dll` must be its direct neighbor.
 
 ## dlib
 
@@ -60,6 +60,6 @@ Note how both the opencv and dlib lib files have been added to "Additional Depen
 * [https://github.com/mourendxu/TD-OpenCV3TOP](https://github.com/mourendxu/TD-OpenCV3TOP)
 
 # Dependent licenses
-[iBUG 300-W dataset](https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/) does not offer commercial usage. This dataset was used to make `shape_predictor_68_face_landmarks.dat`, which is what makes it possible to identify the 68 landmarks on a face. The bounding-box part of this project is not restricted by iBUG's license, but the landmark detection is.
+[iBUG 300-W dataset](https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/) does not offer commercial usage. This dataset was used to make `shape_predictor_68_face_landmarks.dat`, which is what makes it possible to identify the 68 landmarks on a face.
 
 FaceCHOP also uses numbers from [http://aifi.isr.uc.pt/HeadPoseEstimation.html](http://aifi.isr.uc.pt/HeadPoseEstimation.html) that represent an expected 3D head shape in centimeters. That project is copyright of [Pedro Martins](pedromartins@isr.uc.pt) but licensed under GNU General Public License.
