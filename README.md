@@ -25,7 +25,7 @@ On Windows, I've placed the opencv folder at C:/tools/opencv so that I have `C:\
 
 ## dlib
 
-Clone [dlib](https://github.com/davisking/dlib) to `C:\tools\dlib`. These are my three steps for building on Windows.
+Clone [dlib](https://github.com/davisking/dlib) to `C:\tools\dlib`. These are my three steps for building on Windows. Open a cmd window into `C:\tools\dlib`. Then
 
     mkdir build; cd build;
     cmake -g "Visual Studio 16 2019 Win64" -T host=x64 -DCMAKE_INSTALL_PREFIX=install .. -DUSE_AVX_INSTRUCTIONS=1;
@@ -33,7 +33,9 @@ Clone [dlib](https://github.com/davisking/dlib) to `C:\tools\dlib`. These are my
 
 You should end up with `C:\tools\dlib\build\install\lib\dlib19.17.99_release_64bit_msvc1922.lib`
 
-Now download dlib's [`shape_predictor_68_face_landmarks.dat`](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2) and place it in the root of TD-FaceCHOP. It's also available [here](https://github.com/davisking/dlib-models). By using this file you must obey the licensing of the iBUG dataseet.
+Now download dlib's [`shape_predictor_68_face_landmarks.dat`](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2), use an application such as 7-zip to turn the `.bz2` file into a `.dat` file, and place it in the root of TD-FaceCHOP, sibling to `FaceCHOP.toe`. It's also available [here](https://github.com/davisking/dlib-models). By using this file you must obey the licensing of the iBUG dataseet.
+
+This landmarks file doesn't always need to be next to the `.toe`. A custom parameter on the FaceCHOP allows you to select the location of the file.
 
 ## Visual Studio Properties
 If you install opencv or dlib with other methods or in other locations, you'll need to modify the properties of the Visual Studio solution. For my build setup, 
@@ -44,7 +46,7 @@ Note how both the opencv and dlib directories have been added to "Additional Lib
 Note how both the opencv and dlib lib files have been added to "Additional Dependencies"
 ![](docs/images/properties_3.png)
 
-## To do
+# To do
 * Mac OS support
 * Avoid using openCV Mat container
 * Try other methods
@@ -52,7 +54,7 @@ Note how both the opencv and dlib lib files have been added to "Additional Depen
  * [https://github.com/cleardusk/3DDFA](https://github.com/cleardusk/3DDFA) for a better 3D mesh
  * [https://github.com/yinguobing/head-pose-estimation](https://github.com/yinguobing/head-pose-estimation)
 
-## Thanks
+# Thanks
 * [http://dlib.net/webcam\_face\_pose\_ex.cpp.html](http://dlib.net/webcam\_face\_pose\_ex.cpp.html)
 * [https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/](https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/)
 * [http://aifi.isr.uc.pt/HeadPoseEstimation.html](http://aifi.isr.uc.pt/HeadPoseEstimation.html)
