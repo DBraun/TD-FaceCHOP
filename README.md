@@ -1,7 +1,7 @@
 [//]: # (For development of this README.md, use http://markdownlivepreview.com/)
 
 # TD-FaceCHOP
-##### Face landmark detection with openCV and dlib (in TouchDesigner).
+#### Face landmark detection with OpenCV and dlib (in TouchDesigner).
 
 ![](docs/images/header.png)
 
@@ -16,15 +16,18 @@ FaceCHOP has a toggle for using face landmark detection, so if you only care abo
 There's a useful parameter "Facerectframeskip" whose label is "Face Rectangle Frame Skip." Processing the rectangles of faces is far more time-consuming that placing the landmarks on the faces. If you want to get some speed savings and can sacrifice a little accuracy of the landmarks, it can be a good idea to skip 1, maybe 2 frames. If the value is 0, then you'll calculate new face rectangles for every frame.
 
 # Installation
+In order to run the demo project, there are three basic requirements:
+* Download `TD-FaceCHOP.dll` from the [Releases](https://github.com/DBraun/TD-FaceCHOP/releases) page and place it in the `Plugins` folder in this repo.
+* Download [OpenCV 4.1.1](https://opencv.org/releases/) to `C:/tools/opencv`. Copy the file `C:\tools\opencv\build\x64\vc15\bin\opencv_world411.dll` into `TD-FaceCHOP\Plugins`. Wherever you use `TD-FaceCHOP.dll`, `opencv_world411.dll` must be its direct neighbor.
+* Download the dlib pretrained [shape_predictor_68_face_landmarks.dat](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2). **By using this file you must obey the licensing of the iBUG dataset.** Use an application such as 7-zip to turn the `.bz2` file into a `.dat` file and place it in the root of this repo, sibling to `FaceCHOP.toe`. You can use a custom parameter on Face-CHOP to keep this model in a different location. The model is also available [here](https://github.com/davisking/dlib-models).
 
-If you can't build the project yourself, visit the "Releases" page on Github. I've compiled a `TD-FaceCHOP.dll` for Windows TD.2019.19160. Wherever you use `TD-FaceCHOP.dll`, `opencv_world411.dll` must be its direct neighbor.
+That's it! The remaining instructions in this guide are for compiling `TD-FaceCHOP.dll` in case you want to use a different version of OpenCV or a different landmarks model.
 
-## openCV
-Download [openCV](https://opencv.org/releases/). I use 4.1.1 but you can probably use other versions.
-On Windows, I've placed the opencv folder at C:/tools/opencv so that I have `C:\tools\opencv\build\x64\vc15\lib\opencv_world411.lib`. Next go to a different folder, `C:\tools\opencv\build\x64\vc15\bin`, and copy `opencv_world411.dll` into `TD-FaceCHOP\Plugins`. Wherever you use `TD-FaceCHOP.dll`, `opencv_world411.dll` must be its direct neighbor.
+## OpenCV
+Download [OpenCV](https://opencv.org/releases/). I use 4.1.1, but you can probably use other versions.
+On Windows, I've placed it at `C:/tools/opencv` so that I have `C:\tools\opencv\build\x64\vc15\lib\opencv_world411.lib`.
 
 ## dlib
-
 Clone [dlib](https://github.com/davisking/dlib) to `C:\tools\dlib`. These are my three steps for building on Windows. Open a cmd window into `C:\tools\dlib`. Then
 
     mkdir build; cd build;
@@ -33,24 +36,21 @@ Clone [dlib](https://github.com/davisking/dlib) to `C:\tools\dlib`. These are my
 
 You should end up with `C:\tools\dlib\build\install\lib\dlib19.17.99_release_64bit_msvc1922.lib`
 
-Now download dlib's [`shape_predictor_68_face_landmarks.dat`](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2), use an application such as 7-zip to turn the `.bz2` file into a `.dat` file, and place it in the root of TD-FaceCHOP, sibling to `FaceCHOP.toe`. It's also available [here](https://github.com/davisking/dlib-models). By using this file you must obey the licensing of the iBUG dataseet.
-
-This landmarks file doesn't always need to be next to the `.toe`. A custom parameter on the FaceCHOP allows you to select the location of the file.
-
 ## Visual Studio Properties
-If you install opencv or dlib with other methods or in other locations, you'll need to modify the properties of the Visual Studio solution. For my build setup, 
-note how both the opencv and dlib directories have been added to "Additional Include Directories"
+If you install OpenCV or dlib with other methods or in other locations, you'll need to modify the properties of the Visual Studio solution. For my build setup, 
+note how both the OpenCV and dlib directories have been added to "Additional Include Directories"
 ![](docs/images/properties_1.png)
-Note how both the opencv and dlib directories have been added to "Additional Library Directories"
+Note how both the OpenCV and dlib directories have been added to "Additional Library Directories"
 ![](docs/images/properties_2.png)
-Note how both the opencv and dlib lib files have been added to "Additional Dependencies"
+**Note how both the OpenCV and dlib `.lib` files have been added to "Additional Dependencies"**
 ![](docs/images/properties_3.png)
 
 # To do
 * Mac OS support
-* Avoid using openCV Mat container
+* Avoid using OpenCV Mat container
 * Try other methods
  * [https://github.com/1adrianb/face-alignment](https://github.com/1adrianb/face-alignment)
+ * [https://github.com/ageitgey/face_recognition/](https://github.com/ageitgey/face_recognition/)
  * [https://github.com/cleardusk/3DDFA](https://github.com/cleardusk/3DDFA) for a better 3D mesh
  * [https://github.com/yinguobing/head-pose-estimation](https://github.com/yinguobing/head-pose-estimation)
 
@@ -61,7 +61,7 @@ Note how both the opencv and dlib lib files have been added to "Additional Depen
 * [https://github.com/lincolnhard/head-pose-estimation](https://github.com/lincolnhard/head-pose-estimation)
 * [https://github.com/mourendxu/TD-OpenCV3TOP](https://github.com/mourendxu/TD-OpenCV3TOP)
 
-# Dependent licenses
+# Dependent Licenses
 [iBUG 300-W dataset](https://ibug.doc.ic.ac.uk/resources/facial-point-annotations/) does not offer commercial usage. This dataset was used to make `shape_predictor_68_face_landmarks.dat`, which is what makes it possible to identify the 68 landmarks on a face.
 
 FaceCHOP also uses numbers from [http://aifi.isr.uc.pt/HeadPoseEstimation.html](http://aifi.isr.uc.pt/HeadPoseEstimation.html) that represent an expected 3D head shape in centimeters. That project is copyright of [Pedro Martins](pedromartins@isr.uc.pt) but licensed under GNU General Public License.
