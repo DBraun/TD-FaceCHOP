@@ -18,23 +18,23 @@ There's a useful parameter "Facerectframeskip" whose label is "Face Rectangle Fr
 # Installation
 In order to run the demo project, there are three basic requirements:
 * Download `TD-FaceCHOP.dll` from the [Releases](https://github.com/DBraun/TD-FaceCHOP/releases) page and place it in the `Plugins` folder in this repo.
-* Download [OpenCV 4.1.1](https://opencv.org/releases/) to `C:/tools/opencv`. Copy the file `C:\tools\opencv\build\x64\vc15\bin\opencv_world411.dll` into `TD-FaceCHOP\Plugins`. Wherever you use `TD-FaceCHOP.dll`, `opencv_world411.dll` must be its direct neighbor.
+* Install [OpenCV 4.1.1](https://sourceforge.net/projects/opencvlibrary/files/4.1.1/) (`opencv-4.1.1-vc14_vc15.exe`) to `C:/tools/opencv`. Copy the file `C:/tools/opencv/build/x64/vc15/bin/opencv_world411.dll` into `TD-FaceCHOP/Plugins`. Wherever you use `TD-FaceCHOP.dll`, `opencv_world411.dll` must be its direct neighbor.
 * Download the dlib pretrained [shape_predictor_68_face_landmarks.dat](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2). **By using this file you must obey the licensing of the iBUG dataset.** Use an application such as 7-zip to turn the `.bz2` file into a `.dat` file and place it in the root of this repo, sibling to `FaceCHOP.toe`. You can use a custom parameter on Face-CHOP to keep this model in a different location. The model is also available [here](https://github.com/davisking/dlib-models).
 
 That's it! The remaining instructions in this guide are for compiling `TD-FaceCHOP.dll` in case you want to use a different version of OpenCV or a different landmarks model.
 
 ## OpenCV
 Download [OpenCV](https://opencv.org/releases/). I use 4.1.1, but you can probably use other versions.
-On Windows, I've placed it at `C:/tools/opencv` so that I have `C:\tools\opencv\build\x64\vc15\lib\opencv_world411.lib`.
+On Windows, I've placed it at `C:/tools/opencv` so that I have `C:/tools/opencv/build/x64/vc15/lib/opencv_world411.lib`.
 
 ## dlib
-Clone [dlib](https://github.com/davisking/dlib) to `C:\tools\dlib`. These are my three steps for building on Windows. Open a cmd window into `C:\tools\dlib`. Then
+Clone [dlib](https://github.com/davisking/dlib) to `C:/tools/dlib`. These are my three steps for building on Windows. Open a cmd window into `C:/tools/dlib`. Then
 
     mkdir build; cd build;
     cmake -g "Visual Studio 16 2019 Win64" -T host=x64 -DCMAKE_INSTALL_PREFIX=install .. -DUSE_AVX_INSTRUCTIONS=1;
     cmake --build . --config Release --target INSTALL
 
-You should end up with `C:\tools\dlib\build\install\lib\dlib19.17.99_release_64bit_msvc1922.lib`
+You should end up with `C:/tools/dlib/build/install/lib/dlib19.17.99_release_64bit_msvc1922.lib`
 
 ## Visual Studio Properties
 If you install OpenCV or dlib with other methods or in other locations, you'll need to modify the properties of the Visual Studio solution. For my build setup, 
